@@ -14,14 +14,12 @@ app.get("/", (req, res)=>{
 
 app.get("/buscar", (req, res)=>{
     let resultados = jsonPaises.countries;
-    console.log("este es el resultado dentro de buscar"+resultados);
 
     if (req.query.pais) {
         resultados = resultados.filter(element=>{
             return element.name_es.toLowerCase().includes(req.query.pais.toLowerCase());
         })
     }
-    console.log(resultados);
     res.json(resultados);
 });
 
